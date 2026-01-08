@@ -47,7 +47,7 @@ Week-1/
 
 1. **Clone or navigate to the project directory**
    ```bash
-   cd /Users/vlad/Downloads/Hack-O-Week/January/Week-1
+   /Users/Downloads/Hack-O-Week/January/Week-1
    ```
 
 2. **Install dependencies**
@@ -201,13 +201,6 @@ dashboard.run(debug=True, port=8080)  # Change from 8050 to 8080
 - Check data quality and completeness
 - Ensure sufficient historical data (at least 2 weeks recommended)
 
-## 📝 License
-
-This project is created for educational purposes as part of Hack-O-Week.
-
-## 👥 Authors
-
-Created for Peak Hour Electricity Analysis project using free Kaggle datasets for India.
 
 ---
 
