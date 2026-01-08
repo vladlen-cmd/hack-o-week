@@ -1,4 +1,4 @@
-# ⚡ Peak Hour Electricity Analysis
+# Peak Hour Electricity Analysis
 
 An interactive dashboard for analyzing hourly electricity consumption data from India, featuring moving average smoothing and linear regression for predicting evening peak loads.
 
