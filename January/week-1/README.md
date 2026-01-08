@@ -203,5 +203,3 @@ dashboard.run(debug=True, port=8080)  # Change from 8050 to 8080
 
 
 ---
-
-**Enjoy analyzing electricity consumption patterns! ⚡📊**
