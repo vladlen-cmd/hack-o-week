@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom Usage Forecasting Dashboard</title>
+    <meta name="description"
+        content="Real-time classroom electricity forecasting using ARIMA model with Wi-Fi occupancy data">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <h1>Classroom Usage Forecasting</h1>
+                <p class="card-subtitle">AI-Powered Electricity Prediction with ARIMA</p>
+            </div>
+            <div class="header-info">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    Live
+                </div>
+                <div class="last-update" id="lastUpdate">
+                    Updated: --
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="dashboard-grid">
+            <div class="card prediction-card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Next Hour Prediction</h2>
+                        <p class="card-subtitle">ARIMA Forecast</p>
+                    </div>
+                </div>
+
+                <div id="predictionContent">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p class="loading-text">Loading prediction...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Current Status</h2>
+                        <p class="card-subtitle">Real-time metrics</p>
+                    </div>
+                </div>
+
+                <div class="stats-grid" id="currentStats">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p class="loading-text">Loading stats...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Electricity Consumption Trend</h2>
+                        <p class="card-subtitle">Historical data with forecast</p>
+                    </div>
+                </div>
+                <div id="timeSeriesChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p class="loading-text">Loading chart...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Occupancy Correlation</h2>
+                        <p class="card-subtitle">Wi-Fi devices vs electricity</p>
+                    </div>
+                </div>
+                <div id="correlationChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p class="loading-text">Loading chart...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Daily Usage Pattern</h2>
+                        <p class="card-subtitle">Average by hour of day</p>
+                    </div>
+                </div>
+                <div id="hourlyPatternChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p class="loading-text">Loading chart...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- App Script -->
+    <script src="/static/app.js?v=2"></script>
+</body>
+
+</html>
