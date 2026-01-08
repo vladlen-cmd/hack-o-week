@@ -2,14 +2,14 @@
 
 An interactive dashboard for analyzing hourly electricity consumption data from India, featuring moving average smoothing and linear regression for predicting evening peak loads.
 
-## 📋 Overview
+## Overview
 
 This project analyzes hourly electricity meter data to:
 - Apply **moving average smoothing** to reduce noise in consumption patterns
 - Use **linear regression** to predict evening peak hours (6 PM - 10 PM) based on past week data
 - Visualize trends and predictions on a **live Plotly dashboard**
 
-## 🎯 Features
+## Features
 
 - **Data Processing**: Automated cleaning, feature extraction, and time series analysis
 - **Moving Average Smoothing**: Configurable rolling window (default: 24 hours)
@@ -22,7 +22,7 @@ This project analyzes hourly electricity meter data to:
   - Feature importance analysis
 - **Model Metrics**: RMSE, MAE, R², and MAPE
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 Week-1/
@@ -37,7 +37,7 @@ Week-1/
 └── README.md                   # This file
 ```
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Python 3.8 or higher
@@ -65,7 +65,7 @@ Week-1/
    **Option B: Use Synthetic Data**
    - No action needed! The application will automatically generate realistic synthetic data for demonstration
 
-## 🚀 Usage
+## Usage
 
 ### Run the Dashboard
 
@@ -91,7 +91,7 @@ http://localhost:8050
 - **Hover**: Hover over charts to see detailed values
 - **Zoom**: Click and drag to zoom into specific time periods
 
-## 📊 Dashboard Components
+## Dashboard Components
 
 ### 1. **Metrics Cards**
 - **RMSE**: Root Mean Square Error (MW)
@@ -119,7 +119,7 @@ http://localhost:8050
 - Shows which features most influence predictions
 - Based on linear regression coefficients
 
-## 🔬 Methodology
+## Methodology
 
 ### Data Processing
 1. **Loading**: Parse CSV with datetime indexing
@@ -141,7 +141,7 @@ http://localhost:8050
 - Uses past week data for feature calculation
 - Updates dynamically with smoothing window changes
 
-## 🎨 Design
+## Design
 
 The dashboard features a modern dark theme with:
 - **Cyborg Bootstrap theme** for professional appearance
@@ -149,14 +149,14 @@ The dashboard features a modern dark theme with:
 - **Responsive layout**: Works on different screen sizes
 - **Interactive elements**: Smooth animations and hover effects
 
-## 📈 Expected Results
+## Expected Results
 
 With the synthetic data or real India electricity data:
 - **R² Score**: Typically 0.70-0.85 (good predictive power)
 - **RMSE**: ~50-100 MW depending on data scale
 - **Clear patterns**: Daily cycles, evening peaks, weekend effects
 
-## 🛠️ Customization
+## Customization
 
 ### Change Smoothing Window
 Modify in `run_dashboard.py`:
@@ -176,7 +176,7 @@ Modify in `run_dashboard.py`:
 dashboard.run(debug=True, port=8080)  # Change from 8050 to 8080
 ```
 
-## 📚 Dependencies
+## Dependencies
 
 - **pandas**: Data manipulation
 - **numpy**: Numerical operations
@@ -185,7 +185,7 @@ dashboard.run(debug=True, port=8080)  # Change from 8050 to 8080
 - **dash**: Web dashboard framework
 - **dash-bootstrap-components**: UI components
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Dashboard won't start
 - Ensure all dependencies are installed: `pip install -r requirements.txt`
