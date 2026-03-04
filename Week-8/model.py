@@ -1,0 +1,36 @@
+import pandas as pd, numpy as np, pickle
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import make_pipeline
+from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
+from sklearn.model_selection import train_test_split
+
+def train():
+    df = pd.read_csv('parking_data.csv')
+    df['timestamp'] = pd.to_datetime(df['timestamp'])
+    df['hour'] = df['timestamp'].dt.hour
+    df['day_of_week'] = df['timestamp'].dt.weekday
+    # Use actual columns: vehicles, is_dark, sunrise_hour, sunset_hour
+    features = ['hour', 'day_of_week', 'is_weekend', 'vehicles', 'is_dark']
+    X, y = df[features].values, df['electricity_kwh'].values
+    X_tr, X_te, y_tr, y_te = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    model = make_pipeline(PolynomialFeatures(degree=2, include_bias=False), LinearRegression())
+    model.fit(X_tr, y_tr)
+    preds = model.predict(X_te)
+
+    # Anomaly detection threshold
+    residuals = y_te - preds
+    threshold = np.mean(np.abs(residuals)) + 2 * np.std(np.abs(residuals))
+
+    metrics = {'r2': round(r2_score(y_te, preds), 4), 'rmse': round(np.sqrt(mean_squared_error(y_te, preds)), 4),
+               'mae': round(mean_absolute_error(y_te, preds), 4), 'poly_degree': 2,
+               'anomaly_threshold': round(float(threshold), 4), 'features': features}
+
+    with open('model.pkl', 'wb') as f:
+        pickle.dump({'model': model, 'metrics': metrics, 'features': features, 'threshold': threshold}, f)
+    print(f"PolynomialRegression(deg=2) | R²={metrics['r2']} | Anomaly threshold: {threshold:.2f} kWh")
+    return model, metrics
+
+if __name__ == '__main__':
+    train()

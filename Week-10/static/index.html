@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Campus-Wide Sustainability Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <h1><i class="fa-solid fa-leaf"></i> Campus-Wide Sustainability Tracker</h1>
+                <p class="sub">Ensemble (Regression + Smoothing) · Carbon KPIs · Building Drill-down</p>
+            </div>
+            <div class="header-info">
+                <div class="filter-group"><label>Building:</label><select id="buildingFilter" onchange="drilldown()">
+                        <option value="">All Buildings</option>
+                    </select></div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="dashboard-grid four-col" id="kpiCards">
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-solar-panel"></i> Carbon Savings</h2>
+                <div id="carbonChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-chart-line"></i> Energy vs Solar</h2>
+                <div id="energyChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <h2 class="card-title"><i class="fa-solid fa-building"></i> Building Drill-Down</h2>
+                <div id="ddChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-clock"></i> Hourly Pattern</h2>
+                <div id="hourlyChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-droplet"></i> Water vs Occupancy</h2>
+                <div id="waterChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/static/app.js"></script>
+</body>
+
+</html>

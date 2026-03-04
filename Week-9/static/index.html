@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Hostel Laundry Peak Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <h1><i class="fa-solid fa-basket-shopping"></i> Hostel Laundry Peak Prediction</h1>
+                <p class="sub">Naive Bayes · Prophet Forecast · What-If Scenarios</p>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="dashboard-grid four-col" id="kpiCards">
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <h2 class="card-title"><i class="fa-solid fa-chart-line"></i> Prophet Forecast (14-Day)</h2>
+                <div id="forecastChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <h2 class="card-title"><i class="fa-solid fa-sliders"></i> Timeline Slider — What-If Scenarios</h2>
+                <div style="padding:0 .5rem;margin:.75rem 0"><label
+                        style="font-size:.8rem;color:var(--text-muted)">Select time range (days from start):</label><br>
+                    <input type="range" id="slider" min="0" max="90" value="90"
+                        style="width:100%;accent-color:var(--accent-primary)" oninput="onSlider(this.value)">
+                    <span id="sliderVal" style="font-size:.85rem;color:var(--accent-primary)">All data</span>
+                </div>
+                <div id="sliderChart" class="chart-container" style="min-height:300px">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-clock"></i> Hourly Load</h2>
+                <div id="hourlyChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-calendar-week"></i> Daily Pattern</h2>
+                <div id="dailyChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
