@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Data Encryption Pipeline</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <h1><i class="fa-solid fa-lock"></i> Data Encryption Pipeline</h1>
+                <p class="card-subtitle">AES-256 · Fernet · SHA-256 · Base64</p>
+            </div>
+            <div class="header-info">
+                <div class="status-badge"><span class="status-dot"></span> Secure</div>
+                <div class="last-update" id="statsInfo">--</div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="dashboard-grid three-col" id="statCards">
+            <div class="card stat-card">
+                <div class="si"><i class="fa-solid fa-lock"></i></div>
+                <div class="sv" id="encCount">0</div>
+                <div class="sl">Encrypted</div>
+            </div>
+            <div class="card stat-card">
+                <div class="si"><i class="fa-solid fa-lock-open"></i></div>
+                <div class="sv" id="decCount">0</div>
+                <div class="sl">Decrypted</div>
+            </div>
+            <div class="card stat-card">
+                <div class="si"><i class="fa-solid fa-hashtag"></i></div>
+                <div class="sv" id="hashCount">0</div>
+                <div class="sl">Hashed</div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2 class="card-title">Encrypt / Decrypt</h2>
+                <div class="form-group"><label>Plaintext</label><textarea id="inputText" rows="3"
+                        placeholder="Enter text to encrypt..."></textarea></div>
+                <div class="form-group"><label>Method</label><select id="method">
+                        <option value="fernet">Fernet (symmetric, authenticated)</option>
+                        <option value="aes">AES-256-CBC</option>
+                    </select></div>
+                <div class="btn-row"><button class="btn btn-primary" onclick="doEncrypt()"><i class="fa-solid fa-lock"></i> Encrypt</button><button
+                        class="btn btn-outline" onclick="doDecrypt()"><i class="fa-solid fa-lock-open"></i> Decrypt</button></div>
+                <div class="form-group" style="margin-top:1rem"><label>Result</label><textarea id="resultText" rows="3"
+                        readonly class="mono"></textarea></div>
+                <div id="perf" class="perf-info"></div>
+            </div>
+            <div class="card">
+                <h2 class="card-title">Hash Generator</h2>
+                <div class="form-group"><label>Input</label><textarea id="hashInput" rows="3"
+                        placeholder="Enter text to hash..."></textarea></div>
+                <div class="form-group"><label>Algorithm</label><select id="hashAlgo">
+                        <option value="sha256">SHA-256</option>
+                        <option value="sha512">SHA-512</option>
+                        <option value="md5">MD5 (insecure)</option>
+                    </select></div>
+                <button class="btn btn-primary" onclick="doHash()"><i class="fa-solid fa-hashtag"></i> Generate Hash</button>
+                <div class="form-group" style="margin-top:1rem"><label>Hash Output</label><textarea id="hashResult"
+                        rows="2" readonly class="mono"></textarea></div>
+                <div id="hashPerf" class="perf-info"></div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <h2 class="card-title">Full Pipeline Demo</h2>
+                <p class="card-subtitle">Run your data through all encryption stages</p>
+                <div class="form-group" style="margin-top:1rem"><label>Input Data</label><textarea id="pipeInput"
+                        rows="2" placeholder="Enter sensitive data..."></textarea></div>
+                <button class="btn btn-primary" onclick="doPipeline()"><i class="fa-solid fa-play"></i> Run Pipeline</button>
+                <div id="pipelineResults" style="margin-top:1rem"></div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <h2 class="card-title">Operation History</h2>
+                <div id="historyTable" style="margin-top:.5rem">
+                    <p style="color:var(--text-muted);font-size:.85rem">Perform operations to see history...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/static/app.js?v=1"></script>
+</body>
+
+</html>

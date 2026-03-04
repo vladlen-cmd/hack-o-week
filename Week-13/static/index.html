@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Dashboard Visualization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <h1><i class="fa-solid fa-chart-bar"></i> Dashboard Visualization</h1>
+                <p class="card-subtitle">Multi-Source Campus Analytics · Real-Time Charts</p>
+            </div>
+            <div class="header-info">
+                <div class="status-badge"><span class="status-dot"></span> Live</div>
+                <div class="last-update" id="lastUpdate">--</div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="dashboard-grid five-col" id="kpiCards">
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Energy & Footfall Trend</h2>
+                        <p class="card-subtitle">Daily aggregates</p>
+                    </div>
+                </div>
+                <div id="trendChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Network Bandwidth</h2>
+                        <p class="card-subtitle">24-hour pattern</p>
+                    </div>
+                </div>
+                <div id="bwChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Air Quality Index</h2>
+                        <p class="card-subtitle">Hourly distribution</p>
+                    </div>
+                </div>
+                <div id="aqiChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Footfall Heatmap</h2>
+                        <p class="card-subtitle">Hour × Day of Week</p>
+                    </div>
+                </div>
+                <div id="heatChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Correlation Matrix</h2>
+                        <p class="card-subtitle">Energy · Bandwidth · Footfall · AQI</p>
+                    </div>
+                </div>
+                <div id="corrChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Event Attendance</h2>
+                        <p class="card-subtitle">Campus events over time</p>
+                    </div>
+                </div>
+                <div id="eventChart" class="chart-container" style="min-height:280px">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/static/app.js?v=1"></script>
+</body>
+
+</html>
