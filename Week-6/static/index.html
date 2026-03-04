@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Sports Facility Night Usage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <h1><i class="fa-solid fa-futbol"></i> Sports Facility Night Usage</h1>
+                <p class="sub">LSTM (RNN) · Hourly Patterns · Day-Type Filtering</p>
+            </div>
+            <div class="header-info">
+                <div class="filter-group"><label>Day Type:</label><select id="dayFilter" onchange="filterData()">
+                        <option value="">All</option>
+                        <option value="weekday">Weekday</option>
+                        <option value="weekend">Weekend</option>
+                        <option value="event">Event</option>
+                    </select></div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="dashboard-grid four-col" id="kpiCards">
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <h2 class="card-title"><i class="fa-solid fa-chart-line"></i> Energy Timeline</h2>
+                <div id="timeChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-chart-pie"></i> Day Type Analysis</h2>
+                <div id="dayChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-clock"></i> Hourly by Day Type</h2>
+                <div id="hourlyChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-moon"></i> Night vs Day</h2>
+                <div id="nightChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-bolt"></i> Post-Event Patterns</h2>
+                <div id="eventChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
