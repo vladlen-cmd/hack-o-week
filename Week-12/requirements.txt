@@ -1,0 +1,6 @@
+flask
+flask-cors
+flask-socketio
+cryptography
+pandas
+numpy

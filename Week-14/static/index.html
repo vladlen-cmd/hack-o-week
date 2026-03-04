@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Data Encryption Pipeline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <h1><i class="fa-solid fa-shield-halved"></i> Data Encryption Pipeline</h1>
+                <p class="sub">CryptoJS (Client) + Fernet (Server) · Ciphertext DB Storage</p>
+            </div>
+            <div class="header-info">
+                <div class="status-badge"><span class="status-dot"></span> Active</div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="dashboard-grid four-col" id="kpiCards">
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-lock"></i> Encrypt (Client → Server)</h2>
+                <div style="padding:.5rem 0">
+                    <input type="text" id="eLabel" placeholder="Label" value="wearable_payload" class="input">
+                    <textarea id="eText" placeholder="Enter JSON data to encrypt..." class="input"
+                        rows="3">{"heart_rate":72,"steps":5000}</textarea>
+                    <div class="enc-steps" id="encSteps"></div>
+                    <button class="btn" onclick="encryptPipeline()"><i class="fa-solid fa-lock"></i> Encrypt &
+                        Store</button>
+                    <p id="eMsg" class="msg"></p>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-lock-open"></i> Decrypt</h2>
+                <div style="padding:.5rem 0">
+                    <textarea id="dText" placeholder="Paste Fernet ciphertext..." class="input" rows="3"></textarea>
+                    <button class="btn" onclick="decryptData()"><i class="fa-solid fa-lock-open"></i> Decrypt</button>
+                    <p id="dMsg" class="msg"></p>
+                    <div id="dResult" style="margin-top:.5rem"></div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <h2 class="card-title"><i class="fa-solid fa-database"></i> Stored Ciphertexts (DB)</h2>
+                <div id="storeTable">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/static/app.js"></script>
+</body>
+
+</html>

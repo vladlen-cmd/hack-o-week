@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Basic Anomaly Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <h1><i class="fa-solid fa-heart-circle-exclamation"></i> Basic Anomaly Detection</h1>
+                <p class="sub">Isolation Forest · Heart Rate Data · REST API</p>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="dashboard-grid four-col" id="kpiCards">
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <h2 class="card-title"><i class="fa-solid fa-heart-pulse"></i> Heart Rate Stream (Anomalies Highlighted)
+                </h2>
+                <div id="hrChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-chart-bar"></i> Anomaly Score Distribution</h2>
+                <div id="scoreChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-table-cells"></i> Confusion Matrix</h2>
+                <div id="cmChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2 class="card-title"><i class="fa-solid fa-stethoscope"></i> Check Heart Rate (REST API)</h2>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;padding:.5rem 0">
+                    <input type="number" id="chkHR" placeholder="Heart Rate" value="72" class="input"
+                        style="width:120px">
+                    <input type="number" id="chkRHR" placeholder="Resting HR" value="60" class="input"
+                        style="width:120px">
+                    <input type="number" id="chkHRV" placeholder="HRV" value="40" class="input" style="width:100px">
+                    <button class="btn" onclick="checkHR()"><i class="fa-solid fa-magnifying-glass"></i> Check</button>
+                </div>
+                <div id="chkResult" class="msg"></div>
+            </div>
+        </div>
+    </main>
+    <script src="/static/app.js"></script>
+</body>
+
+</html>

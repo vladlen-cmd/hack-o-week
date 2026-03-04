@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Wearable Data Ingestion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <h1><i class="fa-solid fa-heart-pulse"></i> Wearable Data Ingestion</h1>
+                <p class="sub">WebSocket · Fernet Encryption · Real-Time Heart Rate/Steps</p>
+            </div>
+            <div class="header-info">
+                <div class="status-badge" id="wsBadge"><span class="status-dot"></span> Connecting...</div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="dashboard-grid four-col" id="kpiCards">
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <h2 class="card-title"><i class="fa-solid fa-paper-plane"></i> Send Wearable Data via WebSocket</h2>
+                <div style="display:flex;gap:.5rem;flex-wrap:wrap;padding:.5rem 0">
+                    <input type="number" id="wHR" placeholder="Heart Rate" value="72" class="input" style="width:120px">
+                    <input type="number" id="wSteps" placeholder="Steps" value="500" class="input" style="width:120px">
+                    <input type="number" id="wSpO2" placeholder="SpO2" value="98" class="input" style="width:100px">
+                    <input type="text" id="wUser" placeholder="User ID" value="user_1" class="input"
+                        style="width:120px">
+                    <button class="btn" onclick="sendWS()"><i class="fa-solid fa-location-arrow"></i> Send</button>
+                </div>
+                <p id="wsMsg" class="msg"></p>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <h2 class="card-title"><i class="fa-solid fa-chart-line"></i> Live Heart Rate Stream</h2>
+                <div id="hrChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <h2 class="card-title"><i class="fa-solid fa-database"></i> Recent Readings (Decrypted)</h2>
+                <div id="readingsTable">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
