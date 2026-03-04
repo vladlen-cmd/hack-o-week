@@ -10,39 +10,39 @@
 
 **Week 2** — Use sensor data (occupancy via Wi-Fi logs) to train a simple ARIMA model for next-hour room electricity draw; dashboard shows confidence intervals.
 
-**Week 3** — Predict lunch-hour surges using temperature/weather data and **Linear Regression**; real-time line chart updates via **WebSocket** integration. `→ port 5002`
+**Week 3** — Predict lunch-hour surges using temperature/weather data and **Linear Regression**; real-time line chart updates via **WebSocket** integration.
 
-**Week 4** — Predict cafeteria lunch-hour surges using temperature/weather data and **Linear Regression**; real-time line chart updates via **WebSocket** integration. `→ port 5003`
+**Week 4** — Predict cafeteria lunch-hour surges using temperature/weather data and **Linear Regression**; real-time line chart updates via **WebSocket** integration.
 
 ---
 
 ## February
 
-**Week 5** — Train a basic **Decision Tree** on occupancy/temperature data to forecast cooling needs; dashboard with **heatmaps** for zone-wise predictions across 4 lab zones. `→ port 5004`
+**Week 5** — Train a basic **Decision Tree** on occupancy/temperature data to forecast cooling needs; dashboard with **heatmaps** for zone-wise predictions across 4 lab zones.
 
-**Week 6** — Use **RNN (simple LSTM)** on hourly patterns to predict post-event electricity; interactive dashboard filters by **day type** (weekday/weekend/event). `→ port 5005`
+**Week 6** — Use **RNN (simple LSTM)** on hourly patterns to predict post-event electricity; interactive dashboard filters by **day type** (weekday/weekend/event).
 
-**Week 7** — Apply **K-Means clustering** on usage profiles then regress clusters for forecasts; **pie charts** show savings potential on dashboard. `→ port 5006`
+**Week 7** — Apply **K-Means clustering** on usage profiles then regress clusters for forecasts; **pie charts** show savings potential on dashboard.
 
-**Week 8** — Sensor-based vehicle count data fed into **Polynomial Regression** for light usage; real-time **bar chart** with alerts for **anomalies**. `→ port 5007`
+**Week 8** — Sensor-based vehicle count data fed into **Polynomial Regression** for light usage; real-time **bar chart** with alerts for **anomalies**.
 
-**Week 9** — Time-series data with **Naive Bayes** for usage categories, then forecast via **Prophet**; dashboard **timeline slider** for what-if scenarios. `→ port 5008`
+**Week 9** — Time-series data with **Naive Bayes** for usage categories, then forecast via **Prophet**; dashboard **timeline slider** for what-if scenarios.
 
-**Week 10** — Campus-wide sustainability tracker with **Ensemble model** (LR + exponential smoothing); multi-building **drill-down** with **carbon KPI** cards and solar tracking. `→ port 5009`
+**Week 10** — Campus-wide sustainability tracker with **Ensemble model** (LR + exponential smoothing); multi-building **drill-down** with **carbon KPI** cards and solar tracking.
 
 ---
 
 ## March
 
-**Week 11** — User registration portal with **JWT authentication** (PyJWT), **encrypted profiles** (SHA-256), and **wearable sync** endpoint; professional login/register UI with user directory. `→ port 5010`
+**Week 11** — User registration portal with **JWT authentication** (PyJWT), **encrypted profiles** (SHA-256), and **wearable sync** endpoint; professional login/register UI with user directory.
 
-**Week 12** — Wearable data ingestion via **WebSocket** (flask-socketio); incoming data encrypted with **Fernet** before database insert; live heart rate chart. `→ port 5011`
+**Week 12** — Wearable data ingestion via **WebSocket** (flask-socketio); incoming data encrypted with **Fernet** before database insert; live heart rate chart.
 
-**Week 13** — Dashboard visualization built with **React** (CDN); fetches and displays **decrypted** wearable activity data (steps, HR, calories, sleep) with daily trends. `→ port 5012`
+**Week 13** — Dashboard visualization built with **React** (CDN); fetches and displays **decrypted** wearable activity data (steps, HR, calories, sleep) with daily trends.
 
-**Week 14** — Data encryption pipeline: **CryptoJS** (client-side AES) → **Fernet** (server-side) → **SQLite** storage; dual-layer encrypt/decrypt with pipeline timing metrics. `→ port 5013`
+**Week 14** — Data encryption pipeline: **CryptoJS** (client-side AES) → **Fernet** (server-side) → **SQLite** storage; dual-layer encrypt/decrypt with pipeline timing metrics.
 
-**Week 15** — Basic anomaly detection on **heart rate** data using **Isolation Forest**; confusion matrix, anomaly score histogram, and REST API to check individual readings. `→ port 5014`
+**Week 15** — Basic anomaly detection on **heart rate** data using **Isolation Forest**; confusion matrix, anomaly score histogram, and REST API to check individual readings.
 
 ---
 
@@ -69,21 +69,3 @@ python3 app.py                 # start dashboard
 | Crypto | cryptography (Fernet), CryptoJS (client-side AES) |
 | Frontend | Plotly.js, React 18 (CDN), Font Awesome 6, Socket.IO, vanilla CSS (dark themes) |
 | Data | pandas, NumPy, synthetic generators |
-
-## Ports
-
-| Port | Week | Project |
-|------|------|---------|
-| 5002 | 3 | Library Energy During Exams |
-| 5003 | 4 | Cafeteria Load Prediction |
-| 5004 | 5 | HVAC Optimization in Labs |
-| 5005 | 6 | Sports Facility Night Usage |
-| 5006 | 7 | Admin Building Weekend Dip |
-| 5007 | 8 | Parking Lot Lighting Forecast |
-| 5008 | 9 | Hostel Laundry Peak Prediction |
-| 5009 | 10 | Campus-Wide Sustainability Tracker |
-| 5010 | 11 | User Registration Portal |
-| 5011 | 12 | Wearable Data Ingestion |
-| 5012 | 13 | Dashboard Visualization |
-| 5013 | 14 | Data Encryption Pipeline |
-| 5014 | 15 | Basic Anomaly Detection |
