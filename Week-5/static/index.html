@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Optimization in Labs — Dashboard</title>
+    <meta name="description" content="Optimize lab HVAC energy consumption with Ridge Regression prediction">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <h1><i class="fa-solid fa-snowflake"></i> HVAC Optimization in Labs</h1>
+                <p class="card-subtitle">Ridge Regression · Energy Optimization</p>
+            </div>
+            <div class="header-info">
+                <div class="status-badge"><span class="status-dot"></span> Live</div>
+                <div class="last-update" id="lastUpdate">Updated: --</div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="dashboard-grid three-col">
+            <div class="card prediction-card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Next Hour Prediction</h2>
+                        <p class="card-subtitle">HVAC Energy Forecast</p>
+                    </div>
+                </div>
+                <div id="predictionContent">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p class="loading-text">Loading...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card insight-card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Optimization Insights</h2>
+                        <p class="card-subtitle">Savings potential</p>
+                    </div>
+                </div>
+                <div id="insightsContent">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p class="loading-text">Loading...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Model Performance</h2>
+                        <p class="card-subtitle">Ridge Regression metrics</p>
+                    </div>
+                </div>
+                <div id="modelMetrics">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p class="loading-text">Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">HVAC Energy Timeline</h2>
+                        <p class="card-subtitle">Energy consumption over time</p>
+                    </div>
+                </div>
+                <div id="timeSeriesChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Hourly HVAC Pattern</h2>
+                        <p class="card-subtitle">Weekday vs Weekend</p>
+                    </div>
+                </div>
+                <div id="hourlyChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Feature Importance</h2>
+                        <p class="card-subtitle">Key consumption drivers</p>
+                    </div>
+                </div>
+                <div id="featureChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Temperature vs HVAC</h2>
+                        <p class="card-subtitle">Outdoor temp correlation</p>
+                    </div>
+                </div>
+                <div id="tempChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Weekly Heatmap</h2>
+                        <p class="card-subtitle">HVAC load by hour & day</p>
+                    </div>
+                </div>
+                <div id="heatmapChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/static/app.js?v=1"></script>
+</body>
+
+</html>
