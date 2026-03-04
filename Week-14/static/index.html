@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Data Encryption Pipeline</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <h1><i class="fa-solid fa-shield-halved"></i> Data Encryption Pipeline</h1>
+                <div class="card-subtitle">CryptoJS (Client-Side AES) → Fernet (Server-Side) → SQLite Database</div>
+            </div>
+            <div class="header-info">
+                <div class="status-badge"><span class="status-dot"></span> Secure</div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <!-- KPI Stats -->
+        <div class="dashboard-grid three-col" id="kpiCards">
+            <div class="card stat-card">
+                <div class="si"><i class="fa-solid fa-database"></i></div>
+                <div class="sv" id="kTotal">0</div>
+                <div class="sl">Stored Ciphertexts</div>
+            </div>
+            <div class="card stat-card">
+                <div class="si"><i class="fa-solid fa-file-zipper"></i></div>
+                <div class="sv" id="kBytes">0</div>
+                <div class="sl">Encrypted Bytes</div>
+            </div>
+            <div class="card stat-card">
+                <div class="si"><i class="fa-solid fa-lock"></i></div>
+                <div class="sv">AES + Fernet</div>
+                <div class="sl">Dual-Layer Encryption</div>
+            </div>
+        </div>
+
+        <!-- Encrypt & Decrypt -->
+        <div class="dashboard-grid">
+            <div class="card">
+                <div class="card-title"><i class="fa-solid fa-lock" style="color:var(--accent-primary)"></i> Encrypt
+                </div>
+                <div class="card-subtitle">Client → Server dual-layer encryption pipeline</div>
+                <div style="margin-top:var(--spacing-sm)">
+                    <div class="form-group"><label>Label</label><input type="text" id="eLabel" value="wearable_payload"
+                            placeholder="Data label"></div>
+                    <div class="form-group"><label>Plaintext Data (JSON)</label><textarea id="eText" rows="3"
+                            placeholder='{"heart_rate": 72, "steps": 5000}'>{"heart_rate": 72, "steps": 5000}</textarea>
+                    </div>
+                    <div id="encSteps"></div>
+                    <div class="btn-row"><button class="btn btn-primary" onclick="encryptPipeline()"><i
+                                class="fa-solid fa-lock"></i> Encrypt & Store</button></div>
+                    <div id="ePerf" class="perf-info"></div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title"><i class="fa-solid fa-lock-open" style="color:var(--accent-success)"></i>
+                    Decrypt</div>
+                <div class="card-subtitle">Reverse the pipeline: Fernet → CryptoJS AES</div>
+                <div style="margin-top:var(--spacing-sm)">
+                    <div class="form-group"><label>Fernet Ciphertext</label><textarea id="dText" rows="3"
+                            placeholder="Paste ciphertext from the table below..."></textarea></div>
+                    <div class="btn-row">
+                        <button class="btn btn-primary" onclick="decryptData()"><i class="fa-solid fa-lock-open"></i>
+                            Decrypt</button>
+                        <button class="btn btn-outline"
+                            onclick="document.getElementById('dResult').innerHTML='';document.getElementById('dText').value=''"><i
+                                class="fa-solid fa-eraser"></i> Clear</button>
+                    </div>
+                    <div id="dResult" style="margin-top:var(--spacing-sm)"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ciphertext Store -->
+        <div class="card" style="margin-top:var(--spacing-md)">
+            <div class="card-title"><i class="fa-solid fa-database" style="color:var(--accent-primary)"></i> Ciphertext
+                Store (SQLite)</div>
+            <div class="card-subtitle">All encrypted records — click a row to copy ciphertext</div>
+            <div id="storeTable" style="margin-top:var(--spacing-sm)">
+                <div class="loading">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
