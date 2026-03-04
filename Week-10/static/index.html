@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Campus Sustainability Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <h1><i class="fa-solid fa-leaf"></i> Campus-Wide Sustainability Tracker</h1>
+                <p class="card-subtitle">Energy · Solar · Water · Carbon Footprint</p>
+            </div>
+            <div class="header-info">
+                <div class="status-badge"><span class="status-dot"></span> Live</div>
+                <div class="last-update" id="lastUpdate">--</div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="dashboard-grid four-col" id="summaryCards">
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card full-width">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Energy & Solar Timeline</h2>
+                        <p class="card-subtitle">Consumption vs generation</p>
+                    </div>
+                </div>
+                <div id="tsChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">CO₂ Emissions vs Saved</h2>
+                        <p class="card-subtitle">Monthly breakdown</p>
+                    </div>
+                </div>
+                <div id="co2Chart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Sustainability Score</h2>
+                        <p class="card-subtitle">Daily trend</p>
+                    </div>
+                </div>
+                <div id="scoreChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Water Consumption</h2>
+                        <p class="card-subtitle">Hourly pattern</p>
+                    </div>
+                </div>
+                <div id="waterChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">Feature Importance</h2>
+                        <p class="card-subtitle">Energy prediction drivers</p>
+                    </div>
+                </div>
+                <div id="featChart" class="chart-container">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/static/app.js?v=1"></script>
+</body>
+
+</html>
