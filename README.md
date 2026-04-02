@@ -1,6 +1,6 @@
 # Hack-O-Week
 
-> 15-week campus energy & data engineering challenge — one project per week, each with a live dashboard
+> 16-week Set up backend service to monitor streams, detect anomalies (e.g., high BPM), and push encrypted notifications.
 
 ---
 
