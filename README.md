@@ -62,7 +62,7 @@ python3 model.py               # train ML model (skip for Week-11, 12, 14)
 python3 app.py                 # start dashboard
 ```
 
-> **Note:** Week-15 uses `detector.py` instead of `model.py`.
+> **Note:** Week-16 uses `detector.py` instead of `model.py`.
 
 ## Tech Stack
 
