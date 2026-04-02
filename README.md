@@ -46,6 +46,12 @@
 
 ---
 
+## March
+
+**Week 16** — Set up backend service to **monitor streams**, **detect anomalies** (e.g., high BPM), and push encrypted notifications.
+
+---
+
 ## Quick Start
 
 ```bash
