@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 16 - Real-Time Alert System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+  <main class="layout">
+    <header class="hero card">
+      <div class="hero-top">
+        <p class="eyebrow">HACK-O-WEEK / WEEK 16</p>
+        <div class="health" id="healthStatus">Checking service...</div>
+      </div>
+      <h1>Real-Time Alert Command Center</h1>
+      <p class="subtitle">Professional monitoring for live wearable streams, anomaly detection, and encrypted notification dispatch.</p>
+      <div class="chips">
+        <span class="chip">REST + WebSocket</span>
+        <span class="chip">Fernet Encryption</span>
+        <span class="chip">Rule-Based Detection</span>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>System Metrics</h2>
+        <p>Live operational counters from the backend service</p>
+      </div>
+      <div class="stats" id="stats"></div>
+    </section>
+
+    <section class="grid-two">
+      <article class="card">
+        <div class="section-head">
+          <h2>Send Stream Event</h2>
+          <p>Use this form to simulate real-time wearable data</p>
+        </div>
+        <form id="streamForm" class="form-grid">
+          <label>User ID<input id="user_id" value="student-1001" required /></label>
+          <label>Device<input id="device" value="smart-band" required /></label>
+          <label>BPM<input id="bpm" type="number" step="0.1" value="136" required /></label>
+          <label>SpO2<input id="spo2" type="number" step="0.1" value="91" /></label>
+          <label>Temp C<input id="temp_c" type="number" step="0.1" value="38.2" /></label>
+          <button type="submit">Push Reading</button>
+        </form>
+        <p class="helper-text">Tip: BPM above 130 or a sudden jump triggers high-priority alerts.</p>
+        <pre id="submitResult" class="mono small"></pre>
+      </article>
+
+      <article class="card">
+        <div class="section-head">
+          <h2>Stream Feed</h2>
+          <p>Incoming events and processing outcomes</p>
+        </div>
+        <div id="feed" class="scroll-list"></div>
+      </article>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>Encrypted Alerts</h2>
+        <p>Ciphertext previews of active anomaly notifications</p>
+      </div>
+      <div id="alerts" class="scroll-list"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
