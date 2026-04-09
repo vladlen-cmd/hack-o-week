@@ -1,0 +1,141 @@
+
+body {
+	font-family: 'Segoe UI', Arial, sans-serif;
+	margin: 0;
+	background: #f7f8fa;
+	color: #222;
+}
+
+header {
+	background: linear-gradient(90deg, #2b5876 0%, #4e4376 100%);
+	color: #fff;
+	padding: 1.2em 0 1.2em 0;
+	box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+}
+.header-content {
+	max-width: 1100px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 2em;
+}
+.logo {
+	font-size: 1.5em;
+	font-weight: 600;
+	letter-spacing: 1px;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+}
+.export-buttons {
+	display: flex;
+	gap: 1em;
+}
+.export-btn {
+	background: #fff;
+	color: #2b5876;
+	border: none;
+	border-radius: 4px;
+	padding: 0.6em 1.2em;
+	font-size: 1em;
+	font-weight: 500;
+	cursor: pointer;
+	box-shadow: 0 2px 6px rgba(44, 62, 80, 0.07);
+	transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+}
+.export-btn:hover {
+	background: #2b5876;
+	color: #fff;
+	box-shadow: 0 4px 12px rgba(44, 62, 80, 0.12);
+}
+
+main {
+	max-width: 1100px;
+	margin: 2em auto 0 auto;
+	padding: 0 2em;
+}
+.status-banner {
+	border-radius: 8px;
+	padding: 0.9em 1em;
+	margin-bottom: 1em;
+	font-size: 0.98em;
+	border: 1px solid transparent;
+}
+.status-banner.error {
+	background: #fde8e8;
+	color: #9b1c1c;
+	border-color: #f8b4b4;
+}
+.status-banner.info {
+	background: #ebf5ff;
+	color: #1e429f;
+	border-color: #a4cafe;
+}
+.hidden {
+	display: none;
+}
+.table-section {
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 12px rgba(44, 62, 80, 0.07);
+	padding: 2em;
+	overflow-x: auto;
+}
+table {
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 0.5em;
+	background: #fff;
+}
+th, td {
+	border: 1px solid #e0e0e0;
+	padding: 10px 16px;
+	text-align: left;
+	font-size: 1em;
+}
+th {
+	background: #f2f4f8;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+}
+tr.anomaly {
+	background: #ffe0e0 !important;
+	font-weight: bold;
+}
+tr:nth-child(even):not(.anomaly) {
+	background: #f9f9fb;
+}
+
+footer {
+	margin-top: 3em;
+	background: #f2f4f8;
+	color: #888;
+	text-align: center;
+	padding: 1.2em 0;
+	font-size: 1em;
+	letter-spacing: 0.5px;
+}
+
+@media (max-width: 700px) {
+	.header-content, main {
+		padding: 0 0.5em;
+	}
+	.table-section {
+		padding: 1em 0.2em;
+	}
+	th, td {
+		padding: 7px 6px;
+		font-size: 0.95em;
+	}
+	.logo {
+		font-size: 1.1em;
+	}
+	.export-btn {
+		padding: 0.4em 0.7em;
+		font-size: 0.95em;
+	}
+}
